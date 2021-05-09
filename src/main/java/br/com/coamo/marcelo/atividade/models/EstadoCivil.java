@@ -1,7 +1,7 @@
 package br.com.coamo.marcelo.atividade.models;
 
 import java.io.Serializable;
-import java.util.List;
+import java.util.Set;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -13,9 +13,9 @@ import javax.persistence.OneToMany;
 import lombok.Getter;
 import lombok.Setter;
 
-@Entity
+//@Entity(name="estado_civil")
 @Getter @Setter
-public class Cooperado implements Serializable {
+public class EstadoCivil implements Serializable {
 
     /**
 	 * 
@@ -24,22 +24,17 @@ public class Cooperado implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(unique=true, nullable=false)
     private Long id;
     
-    private String matricula;
+//    @Id
+    @Column(name="estado_civil_PK", nullable=false)
+    private int estadoCivilPk;
     
-    @OneToMany(mappedBy = "cooperado")
-    private List<Componentes> componentes;
-    
-//    @OneToMany(mappedBy="cooperado")
-//    private Set<Entrega> entrega;
-    
-//    @OneToMany(mappedBy="cooperado")
-//    private Set<PessoaFisica> pessoaFisica;
-//    
-//    @OneToMany(mappedBy="cooperado")
-//    private Set<PessoaJuridica> pessoaJuridica;
+    private String descricao;
+    private String sigla;
+    @OneToMany(mappedBy="estadoCivil")
+    private Set<PessoaFisica> pessoaFisica;
 
+    
 
 }

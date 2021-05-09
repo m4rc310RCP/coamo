@@ -2,33 +2,29 @@ package br.com.coamo.marcelo.atividade.models;
 
 import java.io.Serializable;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 
-import lombok.Getter;
 import lombok.Setter;
 
-@Entity()
-@Getter
+@Entity
 @Setter
-public class Pessoa implements Serializable {
+public class Componentes implements Serializable {
 
-	/**
+    /**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long id;
 	
-	 private String nome;
+	@Id @GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Long id;
 
-	@ManyToOne(cascade = CascadeType.ALL)
-	private Endereco endereco;
-
+    @ManyToOne()
+    private Cooperado cooperado;
+    
+    @ManyToOne
+    private PessoaFisica pessoaFisica;
 }

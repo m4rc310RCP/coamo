@@ -1,21 +1,21 @@
 package br.com.coamo.marcelo.atividade.models;
 
 import java.io.Serializable;
-import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 
 import lombok.Getter;
 import lombok.Setter;
 
-@Entity
+//@Entity(name="Item_classificacao")
 @Getter @Setter
-public class Cooperado implements Serializable {
+public class ItemClassificacao implements Serializable {
 
     /**
 	 * 
@@ -27,19 +27,14 @@ public class Cooperado implements Serializable {
     @Column(unique=true, nullable=false)
     private Long id;
     
-    private String matricula;
-    
-    @OneToMany(mappedBy = "cooperado")
-    private List<Componentes> componentes;
-    
-//    @OneToMany(mappedBy="cooperado")
-//    private Set<Entrega> entrega;
-    
-//    @OneToMany(mappedBy="cooperado")
-//    private Set<PessoaFisica> pessoaFisica;
-//    
-//    @OneToMany(mappedBy="cooperado")
-//    private Set<PessoaJuridica> pessoaJuridica;
+    private String descricao;
+    private double percentual;
+    @ManyToOne
+    @JoinColumn(name="fk_faixa_desconto_faixa_desconto_PK")
+    private FaixaDesconto faixaDesconto;
+    @ManyToOne
+    @JoinColumn(name="fk_Classificacao_id")
+    private Classificacao classificacao;
 
 
 }

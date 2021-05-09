@@ -3,29 +3,46 @@ package br.com.coamo.marcelo.atividade.models;
 import java.io.Serializable;
 import java.util.Date;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
 import lombok.Getter;
 import lombok.Setter;
 
-@Entity
 @Getter @Setter
-public class PessoaFisica extends Pessoa implements Serializable{
+@Entity(name="Pessoa_fisica")
+public class PessoaFisica extends Pessoa implements Serializable {
+
+    /**
+	 * 
+	 */
 	private static final long serialVersionUID = 1L;
 	
-	@Id @GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long id; 
-	
-	private String cpf;
-	
-	@Temporal(TemporalType.DATE)
-	private Date dataNascimento;
-	private String rg;
-	
+
+    @Column(name="data_nascimento")
+    @Temporal(TemporalType.DATE)
+    private Date dataNascimento;
+    
+   
+//    @Column(unique = true)
+    private String cpf;
+    private String rg;
+    
+//    @OneToMany()
+//    private List<Componentes> componentes;
+//    @ManyToOne
+//    @JoinColumn(name="fk_estado_civil_estado_civil_PK")
+//    private EstadoCivil estadoCivil;
+//    @ManyToOne
+//    @JoinColumn(name="fk_Cooperado_id")
+//    private Cooperado cooperado;
+//    @ManyToOne
+//    @JoinColumn(name="fk_Endereco_id")
+//    private Endereco endereco;
+//    @OneToMany(mappedBy="pessoaFisica")
+//    private Set<Socios> socios;
+
 
 }
