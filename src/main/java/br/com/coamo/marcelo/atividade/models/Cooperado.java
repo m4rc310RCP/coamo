@@ -9,6 +9,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+import javax.persistence.Transient;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -29,8 +30,17 @@ public class Cooperado implements Serializable {
     
     private String matricula;
     
-    @OneToMany(mappedBy = "cooperado")
-    private List<Componentes> componentes;
+    @Transient
+    private PessoaFisica titularPF;
+    
+    @Transient
+    private PessoaJuridica titularPJ;
+    
+    @Transient
+    private Boolean conjunta;
+    
+    @OneToMany()
+    private List<Pessoa> componentes;
     
 //    @OneToMany(mappedBy="cooperado")
 //    private Set<Entrega> entrega;

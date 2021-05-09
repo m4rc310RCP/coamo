@@ -1,9 +1,12 @@
 package br.com.coamo.marcelo.atividade.models;
 
 import java.io.Serializable;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -22,16 +25,11 @@ public class PessoaJuridica extends Pessoa implements Serializable {
     @Column(name="inscricao_junta_comercial")
     private String inscricaoJuntaComercial;
     
-   
+    @ManyToOne
+    private Endereco endereco;
     
-//    @ManyToOne
-//    @JoinColumn(name="fk_Cooperado_id")
-//    private Cooperado cooperado;
-//    @ManyToOne
-//    @JoinColumn(name="fk_Endereco_id")
-//    private Endereco endereco;
-//    @OneToMany(mappedBy="pessoaJuridica")
-//    private Set<Socios> socios;
+    @OneToMany()
+    private List<PessoaFisica> socios;
 
 
 }

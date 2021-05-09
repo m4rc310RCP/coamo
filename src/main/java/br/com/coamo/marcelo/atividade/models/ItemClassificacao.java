@@ -7,13 +7,12 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
 import lombok.Getter;
 import lombok.Setter;
 
-//@Entity(name="Item_classificacao")
+@Entity(name="Item_classificacao")
 @Getter @Setter
 public class ItemClassificacao implements Serializable {
 
@@ -29,12 +28,17 @@ public class ItemClassificacao implements Serializable {
     
     private String descricao;
     private double percentual;
+    
     @ManyToOne
-    @JoinColumn(name="fk_faixa_desconto_faixa_desconto_PK")
-    private FaixaDesconto faixaDesconto;
-    @ManyToOne
-    @JoinColumn(name="fk_Classificacao_id")
-    private Classificacao classificacao;
+    private Produto produto;
+    
+    
+//    @ManyToOne
+//    @JoinColumn(name="fk_faixa_desconto_faixa_desconto_PK")
+//    private FaixaDesconto faixaDesconto;
+//    @ManyToOne
+//    @JoinColumn(name="fk_Classificacao_id")
+//    private Classificacao classificacao;
 
 
 }
