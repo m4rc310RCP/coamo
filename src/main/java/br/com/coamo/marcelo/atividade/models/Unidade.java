@@ -3,7 +3,6 @@ package br.com.coamo.marcelo.atividade.models;
 import java.io.Serializable;
 import java.util.List;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -28,6 +27,7 @@ public class Unidade implements Serializable {
     private Long id;
     
     private String nome;
+    
     private int codigo;
     
     @ManyToOne

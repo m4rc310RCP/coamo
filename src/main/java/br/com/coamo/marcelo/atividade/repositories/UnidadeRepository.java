@@ -15,5 +15,5 @@ public interface UnidadeRepository  extends JpaRepository<Unidade, Long> {
 
 	List<Unidade> findAllByMae(Unidade unidade);
 
-	Optional<Unidade> findByCodigo(Long codigo);
+//	Optional<Unidade> findByCodigo(Long codigo);
 }

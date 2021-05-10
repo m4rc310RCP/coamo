@@ -1,21 +1,20 @@
 package br.com.coamo.marcelo.atividade.models;
 
 import java.io.Serializable;
-import java.time.LocalDate;
-import java.time.LocalDateTime;
-import java.util.Set;
+import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 import lombok.Getter;
 import lombok.Setter;
 
-//@Entity(name="Nota_produtor")
+@Entity(name="Nota_produtor")
 @Getter @Setter
 public class NotaProdutor implements Serializable {
 
@@ -32,12 +31,16 @@ public class NotaProdutor implements Serializable {
     
     private int numero;
     private int serie;
+    
+    
     @Column(name="data_emissao")
-    private LocalDateTime dataEmissao;
+    @Temporal(TemporalType.TIMESTAMP)
+    private Date dataEmissao;
+    
     @Column(name="data_vencimento")
-    private LocalDate dataVencimento;
-    @OneToMany(mappedBy="notaProdutor")
-    private Set<Entrega> entrega;
+    @Temporal(TemporalType.DATE)
+    private Date dataVencimento;
+    
 
    
 }

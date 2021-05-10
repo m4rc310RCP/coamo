@@ -42,8 +42,8 @@ public class Cooperado implements Serializable {
     @OneToMany()
     private List<Pessoa> componentes;
     
-//    @OneToMany(mappedBy="cooperado")
-//    private Set<Entrega> entrega;
+//    @Transient
+//    private List<Entrega> entregas;
     
 //    @OneToMany(mappedBy="cooperado")
 //    private Set<PessoaFisica> pessoaFisica;

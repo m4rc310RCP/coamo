@@ -1,19 +1,18 @@
 package br.com.coamo.marcelo.atividade.models;
 
 import java.io.Serializable;
-import java.util.Set;
+import java.math.BigDecimal;
 
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 
 import lombok.Getter;
 import lombok.Setter;
 
-//@Entity(name="faixa_desconto")
+@Entity(name="faixa_desconto")
 @Getter @Setter
 public class FaixaDesconto implements Serializable {
 
@@ -28,14 +27,18 @@ public class FaixaDesconto implements Serializable {
     private Long id;
     
 //    @Id
-    @Column(name="faixa_desconto_PK", nullable=false)
-    private Long faixaDescontoPk;
+//    @Column(name="faixa_desconto_PK", nullable=false)
+//    private Long faixaDescontoPk;
     
-    private double inicio;
-    private double fim;
-    private double percentual;
-    @OneToMany(mappedBy="faixaDesconto")
-    private Set<ItemClassificacao> itemClassificacao;
+    private BigDecimal inicio;
+    private BigDecimal fim;
+    private BigDecimal percentual;
+    
+    @OneToOne()
+    private ItemClassificacao itemClassificacao;
+    
+//    @OneToMany
+//    private List<ItemClassificacao> itemClassificacao;
 
   
 

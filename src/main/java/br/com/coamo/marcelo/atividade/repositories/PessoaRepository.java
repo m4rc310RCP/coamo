@@ -15,5 +15,6 @@ public interface PessoaRepository  extends JpaRepository<Pessoa, Long> {
 	List<PessoaFisica> findAllByNome(String nome);
 	Optional<PessoaFisica> findByCpf(String cpf);
 	Optional<PessoaJuridica> findByCnpj(String cnpj);
-	List<PessoaFisica> findByNomeContainingIgnoreCase(String nome);
+	List<PessoaFisica> findPfByNomeContainingIgnoreCase(String nome);
+	List<PessoaJuridica> findPjByNomeContainingIgnoreCase(String nome);
 }

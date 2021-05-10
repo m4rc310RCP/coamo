@@ -1,6 +1,7 @@
 package br.com.coamo.marcelo.atividade.models;
 
 import java.io.Serializable;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -8,6 +9,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import javax.persistence.Transient;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -27,15 +29,15 @@ public class ItemClassificacao implements Serializable {
     private Long id;
     
     private String descricao;
-    private double percentual;
     
     @ManyToOne
     private Produto produto;
     
     
-//    @ManyToOne
-//    @JoinColumn(name="fk_faixa_desconto_faixa_desconto_PK")
-//    private FaixaDesconto faixaDesconto;
+    @Transient
+    private List<FaixaDesconto> faixasDescontos;
+    
+    
 //    @ManyToOne
 //    @JoinColumn(name="fk_Classificacao_id")
 //    private Classificacao classificacao;
