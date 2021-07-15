@@ -1,0 +1,5 @@
+Tratamento de erro:
+  if ($status < 0)
+    call PL_ERRO_COMANDO($procerrorcontext)
+    return(<G_ERROEXEC>)
+  endif
